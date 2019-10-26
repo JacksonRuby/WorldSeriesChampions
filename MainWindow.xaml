@@ -1,0 +1,64 @@
+﻿<!--
+ * FILE         : MainWindow.xaml
+ * PROJECT      : Assignment 1 - Group 3
+ * PROGRAMMER   : Jackson Ruby
+ * DATE         : Nov. 5, 2019
+ * DESCRIPTION  :
+ *      Shows outcome of all world series games.
+-->
+    
+    <Window x:Class="WorldSeriesChampions.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WorldSeriesChampions"
+        mc:Ignorable="d"
+        Title="World Series Champions" Height="400" Width="800" MinHeight="400" MinWidth="800">
+
+    <Grid>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height=".7*"></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height=".7*"></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height=".7*"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Label Content="Winning Team" FontSize="20" 
+               HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
+        <Label Content="Years Won" FontSize="20" Grid.Column="2"
+               HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
+
+        <ComboBox Name="cmboTeams" FontSize="30" Margin="10" Grid.Row="1"
+                VerticalContentAlignment="Center"
+                ItemsSource="{Binding AllTeams}"
+                SelectedIndex="{Binding AllTeamsSelectedIndex, Mode=TwoWay}"/>
+
+        <ComboBox Name="cmboYearsWon" FontSize="30" Margin="10" Grid.Column="2" Grid.Row="1"
+                  VerticalContentAlignment="Center"
+                  ItemsSource="{Binding YearsWon}"
+                  SelectedIndex="{Binding YearsWonSelectedIndex, Mode=TwoWay}"/>
+
+        <Label Content="Loser" FontSize="20" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2"
+               HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
+        <Label Content="Final Result" FontSize="20" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2"
+               HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
+
+
+        <Label Name="lblLoser" FontSize="30" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2"
+                   Content="{Binding LosingTeam}"
+                   VerticalContentAlignment="Top" HorizontalContentAlignment="Center"/>
+        <Label Name="lblScore" FontSize="30" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2"
+                   Content="{Binding Score}"
+                   VerticalContentAlignment="Top" HorizontalContentAlignment="Center"/>
+
+    </Grid>
+    
+</Window>
